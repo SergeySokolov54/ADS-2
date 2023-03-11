@@ -4,11 +4,8 @@
 
 
 double pown(double value, uint16_t n) {
-    if (n = 0) {
+    if (n == 0) {
         return 1;
-    }
-    if (n = 1) {
-        return value;
     }
     return value * pown(value, n - 1);
 }
@@ -21,17 +18,14 @@ uint64_t fact(uint16_t n) {
 }
 
 double calcItem(double x, uint16_t n) {
-    if (n == 0) {
-        return 1;
-    }
-    return calcItem(pown(x, n - 1) / fact(n - 1), n - 1);
+    return pown(x, n) / fact(n);
 }
 
 double expn(double x, uint16_t count) {
-    if (x = 0) {
+    if (x == 0) {
         return 1;
     }
-    return expn(pown(x, count - 1) / fact(count - 1), count - 1);
+    return calcItem(x, count - 1);
 }
 
 double sinn(double x, uint16_t count) {
