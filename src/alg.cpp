@@ -11,11 +11,13 @@ double pown(double value, uint16_t n) {
 }
 
 uint64_t fact(uint16_t n) {
-    uint64_t k = 1;
-    for (uint64_t i = 0; i <= n; i++) {
-        k *= i;
+    if (n < 0) {
+        return 0;
     }
-    return k;
+    if (n == 1 || n == 0) {
+        return 1;
+    }
+    return n * fact(n - 1);
 }
 
 double calcItem(double x, uint16_t n) {
